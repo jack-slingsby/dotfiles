@@ -3,6 +3,7 @@ vim.api.nvim_set_keymap('n', '<c-k>',     ":wincmd k<cr>", {silent = true, norem
 vim.api.nvim_set_keymap('n', '<c-j>',     ":wincmd j<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-h>',     ":wincmd h<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-l>',     ":wincmd l<cr>", {silent = true, noremap = true})
+vim.wo.wrap = false
 
 -- ********** telescope ********** 
 local builtin = require('telescope.builtin')
@@ -36,7 +37,7 @@ vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = t
 require('lualine').setup()
 
 -- ********** toggleterm ********** 
-vim.api.nvim_set_keymap('n', '<leader>tt',     ":ToggleTerm<cr>", {silent = true, noremap = true}) 
+vim.api.nvim_set_keymap('n', '<leader>tt',     ":ToggleTerm direction=horizontal<cr>", {silent = true, noremap = true}) 
 
 vim.api.nvim_set_keymap('n', '<leader>tf',     ":ToggleTerm direction=float<cr>", {silent = true, noremap = true}) 
 
@@ -51,3 +52,10 @@ function _G.set_terminal_keymaps()
 --  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+-- ********** onedark ********** 
+require('onedark').setup {
+    style = 'warmer'
+}
+require('onedark').load()
+
