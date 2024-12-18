@@ -11,6 +11,9 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fl', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
+-- ********** telescope-fzf-native ********** 
+require('telescope').load_extension('fzf')
+
 -- ********** nvim-tree ********** 
 local function my_on_attach(bufnr)
   local api = require("nvim-tree.api")
