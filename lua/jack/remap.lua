@@ -1,4 +1,5 @@
 vim.api.nvim_set_keymap('n', '<c-k>',     ":wincmd k<cr>", {silent = true, noremap = true})
+
 vim.api.nvim_set_keymap('n', '<c-j>',     ":wincmd j<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-h>',     ":wincmd h<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-l>',     ":wincmd l<cr>", {silent = true, noremap = true})
@@ -30,3 +31,6 @@ require("nvim-tree").setup({
 })
 
 vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = true, noremap = true}) 
+
+-- ********** lualine ********** 
+require('lualine').setup()
