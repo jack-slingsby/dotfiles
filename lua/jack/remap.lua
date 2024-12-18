@@ -34,3 +34,6 @@ vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = t
 
 -- ********** lualine ********** 
 require('lualine').setup()
+
+-- ********** toggleterm ********** 
+vim.api.nvim_set_keymap('n', '<leader>tt',     ":ToggleTerm<cr>", {silent = true, noremap = true}) 
