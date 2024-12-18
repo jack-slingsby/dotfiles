@@ -3,7 +3,6 @@ vim.api.nvim_set_keymap('n', '<c-k>',     ":wincmd k<cr>", {silent = true, norem
 vim.api.nvim_set_keymap('n', '<c-j>',     ":wincmd j<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-h>',     ":wincmd h<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-l>',     ":wincmd l<cr>", {silent = true, noremap = true})
-vim.wo.wrap = false
 
 -- ********** telescope ********** 
 local builtin = require('telescope.builtin')
