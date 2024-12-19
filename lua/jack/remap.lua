@@ -60,3 +60,5 @@ require('onedark').setup {
 }
 require('onedark').load()
 
+-- ********** gitsigns ********** 
+require('gitsigns').setup()
