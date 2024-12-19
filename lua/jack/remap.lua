@@ -39,8 +39,8 @@ vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = t
 require('lualine').setup()
 
 -- ********** toggleterm ********** 
-vim.api.nvim_set_keymap('n', '<leader>tt',     ":ToggleTerm direction=float<cr>", {silent = true, noremap = true}) 
-vim.api.nvim_set_keymap('n', '<leader>th',     ":ToggleTerm direction=horizontal<cr>", {silent = true, noremap = true}) 
+vim.api.nvim_set_keymap('n', '<leader>t',     ":ToggleTerm direction=float<cr>", {silent = true, noremap = true}) 
+vim.api.nvim_set_keymap('n', '<leader>bt',     ":ToggleTerm direction=horizontal<cr>", {silent = true, noremap = true}) 
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
