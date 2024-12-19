@@ -1,14 +1,14 @@
 vim.api.nvim_set_keymap('n', '<c-k>',     ":wincmd k<cr>", {silent = true, noremap = true})
-
 vim.api.nvim_set_keymap('n', '<c-j>',     ":wincmd j<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-h>',     ":wincmd h<cr>", {silent = true, noremap = true})
 vim.api.nvim_set_keymap('n', '<c-l>',     ":wincmd l<cr>", {silent = true, noremap = true})
+vim.keymap.set('i', 'jk', "<esc>")
 
 -- ********** telescope ********** 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope files under git' })
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fl', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fd', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>ff', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
 -- ********** telescope-fzf-native ********** 
@@ -72,17 +72,17 @@ require('gitsigns').setup{
     end
 
     -- Navigation
-    map('n', 'n', function()
+    map('n', '[c', function()
       if vim.wo.diff then
-        vim.cmd.normal({'n', bang = true})
+        vim.cmd.normal({'[c', bang = true})
       else
         gitsigns.nav_hunk('next')
       end
     end)
 
-    map('n', 'N', function()
+    map('n', ']c', function()
       if vim.wo.diff then
-        vim.cmd.normal({'N', bang = true})
+        vim.cmd.normal({']c', bang = true})
       else
         gitsigns.nav_hunk('prev')
       end
