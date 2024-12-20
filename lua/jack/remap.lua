@@ -31,6 +31,9 @@ end
 
 require("nvim-tree").setup({
   on_attach = my_on_attach,
+  update_focused_file = {
+    enable = true,
+  }
 })
 
 vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = true, noremap = true}) 
