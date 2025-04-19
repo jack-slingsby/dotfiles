@@ -39,7 +39,20 @@ require("nvim-tree").setup({
 vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = true, noremap = true}) 
 
 -- ********** lualine ********** 
-require('lualine').setup()
+require('lualine').setup{
+	options = {
+		disabled_filetypes = { 'NvimTree' }
+	},
+	sections = {
+	    lualine_a = {'mode'},
+	    lualine_b = {'branch'},
+	    lualine_c = {'filename'},
+	    lualine_x = {'filetype'},
+	    lualine_y = {},
+	    lualine_z = {'location'}
+	}
+}
+
 
 -- ********** toggleterm ********** 
 vim.api.nvim_set_keymap('n', '<leader>t',     ":ToggleTerm direction=float<cr>", {silent = true, noremap = true}) 
