@@ -4,13 +4,6 @@ require('telescope').load_extension('fzf')
 
 
 -- ********** nvim-tree ********** 
-vim.g.nvim_tree_show_icons = {
-  folders = 0,
-  files = 0,
-  git = 0,
-  folder_arrows = 0,
-}
-
 local function nvim_tree_attach_func(bufnr)
   local api = require("nvim-tree.api")
 
@@ -26,10 +19,23 @@ local function nvim_tree_attach_func(bufnr)
 end
 
 require("nvim-tree").setup({
-  on_attach = nvim_tree_attach_func,
-  update_focused_file = {
-    enable = true,
-  }
+	on_attach = nvim_tree_attach_func,
+	update_focused_file = {
+		enable = true,
+	},
+	renderer = {
+		icons = {
+			web_devicons = {
+				file = {enable = false}
+			},
+		git_placement = "after"
+		},
+	},
+	actions = {
+		open_file = {
+			quit_on_open = true
+		}
+	}
 })
 
 vim.api.nvim_set_keymap('n', '<leader>e',     ":NvimTreeToggle<cr>", {silent = true, noremap = true}) 
