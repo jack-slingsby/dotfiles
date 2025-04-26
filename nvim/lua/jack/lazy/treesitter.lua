@@ -16,9 +16,8 @@ return {
         	if ok and stats and stats.size > max_filesize then
 			return true
 		end
-	end,
-			},
-      indent = { enable = true },
+  	  end,
+	},
     })
   end
 }

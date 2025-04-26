@@ -32,10 +32,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  end,
+
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+	if client:supports_method('textDocument/completion') then
+		vim.lsp.completion.enable(true, client.id, event.buf, {autotrigger = true})
+	end
+    end,
 })
 
-
+--[[
 local cmp = require('cmp')
 cmp.setup({
   sources = {
@@ -55,3 +60,7 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   })
 })
+]]
+
+-- vim.diagnostic.config({virtual_lines = {current_line = true}})
+vim.diagnostic.config({virtual_text = {current_line = true}})
