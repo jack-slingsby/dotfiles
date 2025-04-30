@@ -35,9 +35,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
 	if client:supports_method('textDocument/completion') then
-		vim.lsp.completion.enable(true, client.id, event.buf, {autotrigger = true})
+		-- vim.lsp.completion.enable(true, client.id, event.buf, {autotrigger = true})
 	end
     end,
+    --- Bindings: https://neovim.io/doc/user/insert.html#complete_CTRL-Y
 })
 
 --[[
@@ -62,5 +63,16 @@ cmp.setup({
 })
 ]]
 
--- vim.diagnostic.config({virtual_lines = {current_line = true}})
 vim.diagnostic.config({virtual_text = {current_line = true}})
+local toggle_mode_inline = true
+local function toggleDiagInline ()
+	if toggle_mode_inline then
+		vim.diagnostic.config({virtual_lines = {current_line = true}})
+		vim.diagnostic.config({virtual_text = false})
+	else
+		vim.diagnostic.config({virtual_lines = false})
+		vim.diagnostic.config({virtual_text = {current_line = true}})
+	end
+	toggle_mode_inline = not(toggle_mode_inline)
+end
+vim.keymap.set("n", "<Leader>m", toggleDiagInline)
