@@ -1,5 +1,6 @@
 vim.g.mapleader = " " -- Set leader key before Lazy
 vim.opt.termguicolors = true
+vim.opt.scrolloff = 2 
 
 -- Required by nvim-tree
 vim.g.loaded_netrw = 1
